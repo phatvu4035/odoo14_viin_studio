@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="assets_backend" name="Studio assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/viin_web_studio/static/src/js/systray_studio.js" />
+                <script type="text/javascript" src="/viin_web_studio/static/src/js/chrome/web_client.js" />
+                <script type="text/javascript" src="/viin_web_studio/static/src/js/editor_action.js" />
+                <script type="text/javascript" src="/viin_web_studio/static/src/js/helper.js" />
+                
+            </xpath>
+        </template>
+        
+        <template id="compiled_assets_studio" name="Studio Editor" groups="base.group_user,base.group_portal">
+		    <t t-call-assets="viin_web_studio.assets_studio"/>
+		</template>
+        
+        <template id="viin_web_studio.assets_studio" name="Studio Editor Assets">
+            <script type="text/javascript" src="/viin_web_studio/static/src/js/common/abstract_editor_manager.js" />
+            <script type="text/javascript" src="/viin_web_studio/static/src/js/view_editor_manager.js" />
+            <script type="text/javascript" src="/viin_web_studio/static/src/js/view_editor/form_editor.js" />
+            <script type="text/javascript" src="/viin_web_studio/static/src/js/abstract_view.js" />
+        </template>
+    </data>
+</odoo>

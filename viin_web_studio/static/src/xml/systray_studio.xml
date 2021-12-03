@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+
+<t t-name="viin_web_studio.SystrayStudioItem">
+    <li t-attf-class="o_web_studio_navbar_item #{widget.disabled ? 'o_disabled' : ''} d-none d-md-inline-block">
+        <a role="button" href="#" title="Toggle Studio">
+            <span class="fa fa-cogs"/>
+        </a>
+    </li>
+</t>
+
+</templates>
