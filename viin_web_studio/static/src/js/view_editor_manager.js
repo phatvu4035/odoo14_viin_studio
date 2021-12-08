@@ -5,12 +5,14 @@ odoo.define('viin_web_studio.ViewEditorManager', function(require) {
     var FormEditor = require('viin_web_studio.FormEditor');
     var viewRegistry = require('web.view_registry');
     var helper = require('viin_web_studio.helper');
+    var dom = require('web.dom');
     
     var editors = {
         'form': FormEditor
     }
     
     var ViewEditorManager = AbstractEditorManager.extend({
+        className: 'o_web_studio_editor_manager',
         /**
         * @override
         */
@@ -27,9 +29,24 @@ odoo.define('viin_web_studio.ViewEditorManager', function(require) {
          * @override
          */
         start: function() {
-            var self = this
+            var self = this;
+            // Create editor wrapper 
+            var editorFragment = $('<div>', {
+                    class: 'o_web_studio_editor_renderer',
+            });
+            editorFragment.appendTo(this.$el);
             return this._super.apply(this, arguments).then(function() {
-                self._instantiateEditor();
+                self._instantiateEditor().then(function(editor) {
+                    // Append to studio editor
+                    var fragment = document.createDocumentFragment();
+                    var prom = editor.appendTo(fragment);
+                    
+                    return prom.then(function() {
+                        dom.append(self.$('.o_web_studio_editor_renderer'), [fragment], {
+                            in_DOM: self.isInDOM,
+                        });
+                    })
+                })
             })
             
         },
@@ -55,8 +72,9 @@ odoo.define('viin_web_studio.ViewEditorManager', function(require) {
             
             this.view = new View(viewInfo, viewParams);
             var editor = editors[this.viewType];
-            var studioEditor = this.view.createStudioView(this, editor, {});
-            return studioEditor
+            var def = this.view.createStudioView(this, editor, {});
+            
+            return def
             
         }
     });

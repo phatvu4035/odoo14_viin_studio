@@ -6,6 +6,8 @@ odoo.define('viin_web_studio.EditorAction', function(require) {
     var session = require('web.session');
     var helper = require('viin_web_studio.helper');
     var ViewEditorManager = require('viin_web_studio.ViewEditorManager');
+    var dom = require('web.dom');
+    
     
     var StudioAction = AbstractAction.extend({
         /**
@@ -28,7 +30,7 @@ odoo.define('viin_web_studio.EditorAction', function(require) {
             var def = this._editCurrentView();
             return Promise.all([this._super.apply(this, arguments), def]).then(function() {
                 
-            })
+            });
         },
         
         /**
@@ -71,9 +73,14 @@ odoo.define('viin_web_studio.EditorAction', function(require) {
                     };
                     self.view_editor = new ViewEditorManager(self, params);
 
-                    self.view_editor.appendTo($('o_content'));
-                    
                     var fragement = document.createDocumentFragment();
+                    
+                    // Append to dom
+                    self.view_editor.appendTo(fragement).then(function() {
+                       dom.append(self.$('.o_content'), [fragement], {
+                        in_DOM: self.isInDOM,
+                       });
+                    })
                 })
             });
         },

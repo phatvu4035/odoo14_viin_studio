@@ -15,7 +15,6 @@ odoo.define('viin_web_studio.AbstractViewStudio', function(require) {
             
             return Promise.all([this._loadData(model), ajax.loadLibs(this)]).then(function(result) {
                 const { state } = result[0];
-                
                 var editor = new Editor(parent, state, self.rendererParams);
                 model.setParent(editor);
                 return editor;
