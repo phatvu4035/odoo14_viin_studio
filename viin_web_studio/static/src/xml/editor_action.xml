@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+
+<t t-name="viin_web_studio.EditorMenu">
+    <div class="o-studio-editor-menu">
+        <select>
+          <option value="form">Form</option>
+          <option value="menu">Menu</option>
+        </select>
+    </div>
+
+</t>
+
+</templates>

@@ -16,10 +16,14 @@
 		</template>
         
         <template id="viin_web_studio.assets_studio" name="Studio Editor Assets">
+            <script type="text/javascript" src="/viin_web_studio/static/src/js/components/view_components.js" />
+            <script type="text/javascript" src="/viin_web_studio/static/src/js/editor_left_sidebar.js" />
+            <script type="text/javascript" src="/viin_web_studio/static/src/js/editor_right_sidebar.js" />
             <script type="text/javascript" src="/viin_web_studio/static/src/js/common/abstract_editor_manager.js" />
             <script type="text/javascript" src="/viin_web_studio/static/src/js/view_editor_manager.js" />
             <script type="text/javascript" src="/viin_web_studio/static/src/js/view_editor/form_editor.js" />
             <script type="text/javascript" src="/viin_web_studio/static/src/js/abstract_view.js" />
+            <link rel="stylesheet" type="text/scss" href="/viin_web_studio/static/src/scss/view_editor.scss"/>
         </template>
     </data>
 </odoo>

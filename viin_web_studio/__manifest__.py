@@ -91,6 +91,9 @@ Tính năng chính
     ],
     'qweb':[
         'static/src/xml/systray_studio.xml',
+        'static/src/xml/editor_action.xml',
+        'static/src/xml/editor_sidebar.xml',
+        'static/src/xml/view_components.xml',
     ],
     'images' : [
         # 'static/description/main_screenshot.png'

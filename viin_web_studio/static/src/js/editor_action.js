@@ -7,6 +7,8 @@ odoo.define('viin_web_studio.EditorAction', function(require) {
     var helper = require('viin_web_studio.helper');
     var ViewEditorManager = require('viin_web_studio.ViewEditorManager');
     var dom = require('web.dom');
+
+    const qweb = core.qweb
     
     
     var StudioAction = AbstractAction.extend({
@@ -27,10 +29,19 @@ odoo.define('viin_web_studio.EditorAction', function(require) {
         */
         start: function() {
             var self = this;
+            this._renderEditorMenu();
             var def = this._editCurrentView();
             return Promise.all([this._super.apply(this, arguments), def]).then(function() {
                 
             });
+        },
+
+        /**
+         * Create editor menu provide client option when they want to switch to other editor
+         * */
+        _renderEditorMenu: function () {
+            var $editorMenu = $(qweb.render('viin_web_studio.EditorMenu'));
+            $editorMenu.prependTo(this.$el);
         },
         
         /**

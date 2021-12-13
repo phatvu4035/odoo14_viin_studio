@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="viin_web_studio.EditorLeftSidebar">
+        <div class="o_web_studio_left_sidebar">
+            <div class="o_web_studio_left_sidebar_content">
+
+            </div>
+        </div>
+    </t>
+
+    <t t-name="viin_web_studio.EditorRightSidebar">
+        <div class="o_web_studio_right_sidebar">
+            <div class="o_web_studio_right_sidebar_content">
+                <h3>Properties</h3>
+
+            </div>
+        </div>
+    </t>
+</templates>

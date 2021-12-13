@@ -1,0 +1,96 @@
+.o_web_studio_editor_manager {
+  display: flex;
+  .o_web_studio_left_sidebar, .o_web_studio_right_sidebar {
+    width: 20%;
+  }
+  .o_web_studio_editor_renderer .o_inner_group {
+    transition: border-color 0.5s;
+    padding: 5px;
+    border-collapse: separate;
+    border: 5px solid rgba(0, 160, 157, 0.1);
+  }
+
+  .o_web_studio_editor_renderer .o_inner_group td.o_td_label {
+    min-width: 140px;
+  }
+
+  .o_web_studio_editor_renderer .o_inner_group tr td > :not(.o_horizontal_separator) {
+    opacity: 0.5;
+  }
+
+  .o_web_studio_editor_renderer .o_inner_group tr td {
+    border: 5px solid transparent;
+    border-bottom-width: 1px;
+  }
+
+  .o_web_studio_editor_renderer .o_inner_group .o_form_label {
+    margin: 0 5px 0 0;
+  }
+
+  .o_web_studio_left_sidebar {
+      -webkit-flex-flow: column nowrap;
+      flex-flow: column nowrap;
+      color: white;
+      background-color: #3a3f46;
+      border-right: 3px solid #262C34;
+      .o_web_studio_left_sidebar_content > h3 {
+        color: white;
+        margin: 10px 0 15px 0;
+      }
+      .o_web_studio_left_sidebar_content .o_web_studio_component {
+        display: inline-block;
+        line-height: 1.7;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        vertical-align: top;
+        width: 49%;
+        height: 40px;
+        position: relative;
+        margin-bottom: 5px;
+        padding: 3px 5px 0 0;
+        max-width: 130px;
+        border-radius: 2px;
+        background-color: #EAEAEA;
+        box-shadow: 0 1px 1px black;
+        color: #262C34;
+        cursor: pointer;
+        z-index: 10;
+      }
+      .o_web_studio_left_sidebar_content .o_web_studio_component::before {
+        width: 33px;
+        height: 150%;
+        display: block;
+        float: left;
+        margin: -3px 5px 0 0;
+        border-right: 1px solid #a0abb9;
+        background-color: #dddddd;
+        content: "";
+      }
+
+      .o_web_studio_left_sidebar_content .o_web_studio_component .o_web_studio_component_description {
+        display: block;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        vertical-align: top;
+        padding: 2px;
+        background: white;
+        font-size: 10px;
+      }
+  }
+  .studio-elem-hovered {
+      cursor: pointer;
+      outline: 1px dashed #00A09D;;
+    }
+
+}
+
+@media (min-width: 992px) {
+  .o_chatter_position_sided .o_content .o_form_view:not(.o_form_nosheet),
+  .o_chatter_position_sided .modal-content .o_form_view:not(.o_form_nosheet){
+    display: block;
+  }
+}
