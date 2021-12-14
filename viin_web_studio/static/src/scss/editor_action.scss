@@ -1,0 +1,65 @@
+$studioNavbarBg: #262C34;
+
+.o-studio-navbar {
+    position: fixed;
+    z-index: 20;
+    background-color: $studioNavbarBg;
+    border-color: $studioNavbarBg;
+    width: 100%;
+    .o_menu_navbar_btns {
+        float: right;
+    }
+
+    > ul > li > a:hover  {
+        background-color: $studioNavbarBg;
+    }
+
+    .o_menu_sections .show .dropdown-toggle {
+        background-color: $studioNavbarBg;
+    }
+
+    .dropdown-menu.show {
+        background-color: $studioNavbarBg;
+        border: #262C34;
+    }
+
+    .dropdown-menu.show .dropdown-item,.dropdown-menu.show .dropdown-item:hover {
+        color: #FFFFFF;
+        background-color: $studioNavbarBg;
+    }
+}
+.o-studio-menu {
+    display: flex;
+    justify-content: space-between;
+    background-color: #3a3f46;
+    .o_web_studio_menu_undo_redo {
+        display: flex;
+        .o_web_studio_undo {
+            display: -webkit-inline-flex;
+            display: inline-flex;
+            > button {
+                padding-left: 0;
+                cursor: default;
+                background-color: #3a3f46;
+                color: gray;
+                outline: none;
+                box-shadow: none;
+            }
+        }
+
+        .o_web_studio_undo_redo_separator {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            align-items: center;
+            -webkit-box-flex: 0;
+            -webkit-flex: 0 0 auto;
+            flex: 0 0 auto;
+        }
+
+        .o_web_studio_redo {
+            display: -webkit-inline-flex;
+            display: inline-flex;
+        }
+    }
+}

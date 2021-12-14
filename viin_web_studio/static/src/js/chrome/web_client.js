@@ -3,6 +3,7 @@ odoo.define('viin_web_studio.WebClient', function(require) {
     
     const WebClient = require('web.WebClient');
     const ajax = require('web.ajax');
+    var core = require('web.core');
 
     WebClient.include({
 	   custom_events: _.extend({}, WebClient.prototype.custom_events, {
@@ -12,6 +13,7 @@ odoo.define('viin_web_studio.WebClient', function(require) {
        studio_assets: ['web_editor.compiled_assets_wysiwyg', 'viin_web_studio.compiled_assets_studio'],
 
        _onStudioSystrayClicked: async function() {
+           core.bus.trigger('studio_toggled');
            await ajax.loadLibs({ assetLibs: this.studio_assets });
            
 	       const studioMode = 'main';

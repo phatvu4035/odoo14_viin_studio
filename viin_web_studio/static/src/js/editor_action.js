@@ -29,7 +29,16 @@ odoo.define('viin_web_studio.EditorAction', function(require) {
         */
         start: function() {
             var self = this;
-            this._renderEditorMenu();
+
+            var studioMenu = $('<div>', {
+                class: 'o-studio-menu'
+            })
+            var $editorMenu = this._renderEditorViewTypeMenu();
+            var $redoUndoMenu = this._renderRedoUndoMenu();
+            $redoUndoMenu.appendTo(studioMenu);
+            $editorMenu.appendTo(studioMenu);
+            studioMenu.prependTo(this.$el);
+
             var def = this._editCurrentView();
             return Promise.all([this._super.apply(this, arguments), def]).then(function() {
                 
@@ -39,9 +48,19 @@ odoo.define('viin_web_studio.EditorAction', function(require) {
         /**
          * Create editor menu provide client option when they want to switch to other editor
          * */
-        _renderEditorMenu: function () {
-            var $editorMenu = $(qweb.render('viin_web_studio.EditorMenu'));
-            $editorMenu.prependTo(this.$el);
+        _renderEditorViewTypeMenu: function () {
+            var views = this.views.map(v => v[1]);
+            var $editorMenu = $(qweb.render('viin_web_studio.EditorViewTypeMenu', {
+                views: views
+            }));
+            return $editorMenu;
+        },
+        /**
+         * Create editor menu provide client option when they want to switch to other editor
+         * */
+        _renderRedoUndoMenu: function () {
+            var $redoUndoMenu = $(qweb.render('viin_web_studio.redoUndoMenu'));
+            return $redoUndoMenu;
         },
         
         /**
@@ -69,7 +88,6 @@ odoo.define('viin_web_studio.EditorAction', function(require) {
             if (!this.controllerState.currentId) {
                 this.controllerState.currentId = this.controllerState.resIds && self.controllerState.resIds[0];
             }
-            
             
             return Promise.all(defs).then(function() {
                 var context = _.extend({}, helper.cloneObj(self.action.context, true), {lang: false});
