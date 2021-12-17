@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="viin_web_studio.EditMenu.Dialog">
+        <div>
+            <div class="o_web_studio_edit_menu_desc small float-right">
+                <i class="fa fa-info-circle"/> Drag a menu to the right to create a sub-menu
+            </div>
+        </div>
+    </t>
+</templates>

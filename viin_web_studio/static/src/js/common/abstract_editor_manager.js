@@ -4,7 +4,7 @@ odoo.define('viin_web_studio.AbstractEditorManager', function(require) {
     
     var AbstractEditorManager = Widget.extend({
         custom_events: {
-            'field_clicked': '_onFieldClicked'
+            'field_clicked': '_onFieldClicked',
         },
     });
     return AbstractEditorManager;

@@ -27,7 +27,7 @@ odoo.define('viin_web_studio.EditorLeftSidebar', function (require) {
 
         _renderNewFieldSection: function () {
             var newFieldSection = $('<div>', {
-                class: 'o_web_studio_new_fields'
+                class: 'o_web_studio_new_fields o_web_studio_field_type_container'
             });
             var sectionTitle = $('<h3>', {
                 html: _t('New Fields')
@@ -47,7 +47,7 @@ odoo.define('viin_web_studio.EditorLeftSidebar', function (require) {
 
         _renderExistingFieldSection: function () {
             var existingFieldSection = $('<div>', {
-                class: 'o_web_studio_existing_fields'
+                class: 'o_web_studio_existing_fields o_web_studio_field_type_container'
             });
             var sectionTitle = $('<h3>', {
                 html: _t('Existing Field')

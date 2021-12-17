@@ -91,6 +91,8 @@ Tính năng chính
     ],
     'qweb':[
         'static/src/xml/systray_studio.xml',
+        'static/src/xml/new_model.xml',
+        'static/src/xml/edit_menu.xml',
         'static/src/xml/editor_action.xml',
         'static/src/xml/app_creator.xml',
         'static/src/xml/editor_sidebar.xml',

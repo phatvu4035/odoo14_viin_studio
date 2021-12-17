@@ -9,29 +9,40 @@ $studioNavbarBg: #262C34;
     .o_menu_navbar_btns {
         float: right;
     }
-
     > ul > li > a:hover  {
         background-color: $studioNavbarBg;
     }
-
     .o_menu_sections .show .dropdown-toggle {
         background-color: $studioNavbarBg;
     }
-
     .dropdown-menu.show {
         background-color: $studioNavbarBg;
         border: #262C34;
     }
-
     .dropdown-menu.show .dropdown-item,.dropdown-menu.show .dropdown-item:hover {
         color: #FFFFFF;
         background-color: $studioNavbarBg;
     }
+    .o-web-studio-leave {
+        height: 100%;
+        display: table;
+        float: right;
+        a {
+            font-weight: bold;
+            color: #EAEAEA;
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+
 }
 .o-studio-menu {
     display: flex;
     justify-content: space-between;
     background-color: #3a3f46;
+    color: gray;
+    min-height: 46px;
+    border-bottom: 3px solid #262C34;
     .o_web_studio_menu_undo_redo {
         display: flex;
         .o_web_studio_undo {
@@ -61,5 +72,51 @@ $studioNavbarBg: #262C34;
             display: -webkit-inline-flex;
             display: inline-flex;
         }
+    }
+    .o_web_studio_switch_model {
+        display: flex;
+        button {
+            color: gray;
+        }
+        .o_web_studio_switch_model_item {
+            display: flex;
+        }
+    }
+    .o_web_studio_sidebar_select-item {
+        padding-right: 10px;
+    }
+    .o_web_studio_sidebar_select-item select {
+        color: #b7b7b7;
+        border: 1px solid transparent;
+        background-color: #262C34;
+        transition: all 0.3s ease 0s;
+        transition-property: all;
+        transition-property: background, border;
+        color: #b7b7b7;
+        background-image: none;
+        box-shadow: none;
+        cursor: pointer;
+        min-width: 50px;
+        border-radius: 0;
+        display: block;
+        outline: none;
+        margin-top: 8px;
+        margin-right: 5px;
+        padding: 4px 5px;
+        > option {
+            background-color: white;
+            color: #15161A;
+        }
+    }
+    .o_web_studio_sidebar_select-item select::after {
+        content: "\f078";
+        position: absolute;
+        top: 37px;
+        left: auto;
+        bottom: auto;
+        right: 8px;
+        color: #b7b7b7;
+        font-family: 'FontAwesome';
+        font-size: 8px;
     }
 }

@@ -2,12 +2,14 @@
 <templates>
 
 <t t-name="viin_web_studio.EditorViewTypeMenu">
-    <div class="o-studio-editor-menu">
-        <select>
-            <t t-foreach="views" t-as="view">
-                <option t-att-value="view"><t t-esc="view"/></option>
-            </t>
-        </select>
+    <div class="o-studio-editor-menu o_web_studio_sidebar_select">
+        <div class="o_web_studio_sidebar_select-item">
+            <select>
+                <t t-foreach="views" t-as="view">
+                    <option t-att-value="view"><t t-esc="view"/></option>
+                </t>
+            </select>
+        </div>
     </div>
 </t>
 
@@ -15,13 +17,13 @@
     <div class="o_web_studio_menu_undo_redo">
         <div class="o_web_studio_menu_before_undo_redo"></div>
         <div class="o_web_studio_undo">
-            <button class="btn o_web_studio_undo_redo_button"><i class="fa fa-undo"></i><span>Undo</span></button>
+            <button class="btn o_web_studio_undo_redo_button"><i class="fa fa-undo"></i><span> Undo</span></button>
         </div>
         <div class="o_web_studio_undo_redo_separator">
             <div class="o_web_studio_undo_redo_separator_line"></div>
         </div>
         <div class="o_web_studio_redo">
-            <button class="btn o_web_studio_undo_redo_button"><i class="fa fa-repeat"></i><span>Redo</span></button>
+            <button class="btn o_web_studio_undo_redo_button"><i class="fa fa-repeat"></i><span> Redo</span></button>
         </div>
     </div>
 </t>
@@ -39,8 +41,8 @@
                     <a role="menuitem" href="#"  class="dropdown-item o_menu_entry_lvl_2 studio-edit-menu-btn" data-toggle="collapse">
                         <span>Edit Menu</span>
                     </a>
-                    <a role="menuitem" href="#" class="dropdown-item o_menu_entry_lvl_2 studio-edit-model-btn" data-toggle="collapse">
-                        <span>Edit Model</span>
+                    <a role="menuitem" href="#" class="dropdown-item o_menu_entry_lvl_2 studio-new-model-btn" data-toggle="collapse">
+                        <span>New Model</span>
                     </a>
                     <a role="menuitem" href="#" class="dropdown-item o_menu_entry_lvl_2 studio-manage-report-btn" data-toggle="collapse">
                         <span>Manage Report</span>
@@ -69,12 +71,20 @@
                 </div>
             </li>
         </ul>
-        <ul class="o_menu_navbar_btns">
-            <li>
-                <button class="o_web_studio_leave">Close</button>
-            </li>
-        </ul>
+        <div class="o-web-studio-leave">
+            <a class="btn btn-primary">Close</a>
+        </div>
     </nav>
+</t>
+<t t-name="viin_web_studio.Select">
+    <div class="o_web_studio_switch_model">
+        <div class="o_web_studio_switch_model_item">
+            <button class="btn o_web_studio_switch_model_btn">
+                <i class="fa fa-list"></i>
+                <span> Select Model</span>
+            </button>
+        </div>
+    </div>
 </t>
 </templates>
 

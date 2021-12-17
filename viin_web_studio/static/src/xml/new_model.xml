@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+
+    <div t-name="viin_web_studio.NewModel.Dialog">
+        <div>
+            <label for="name">Name</label>
+            <input class="o_input" name="name" placeholder="My Model" type="text"/>
+        </div>
+    </div>
+
+</templates>

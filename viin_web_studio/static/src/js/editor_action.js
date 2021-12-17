@@ -35,7 +35,9 @@ odoo.define('viin_web_studio.EditorAction', function(require) {
             })
             var $editorMenu = this._renderEditorViewTypeMenu();
             var $redoUndoMenu = this._renderRedoUndoMenu();
+            var $menuModelMenu = this._openSelectModel();
             $redoUndoMenu.appendTo(studioMenu);
+            $menuModelMenu.appendTo(studioMenu);
             $editorMenu.appendTo(studioMenu);
             studioMenu.prependTo(this.$el);
 
@@ -62,7 +64,12 @@ odoo.define('viin_web_studio.EditorAction', function(require) {
             var $redoUndoMenu = $(qweb.render('viin_web_studio.redoUndoMenu'));
             return $redoUndoMenu;
         },
-        
+        /**
+        * */
+        _openSelectModel: function () {
+            var $menuModelMenu = $(qweb.render('viin_web_studio.Select'));
+            return $menuModelMenu;
+        },
         /**
         * @private
         * set view for current editor action
@@ -82,7 +89,6 @@ odoo.define('viin_web_studio.EditorAction', function(require) {
             this.viewType = this.view[1];
             this.viewId = this.view[0];
         },
-        
         _editCurrentView: function() {
             var self = this;
             var defs = [this._loadStudioViewArch(this.action.res_model, this.viewType, this.viewId)];
@@ -114,7 +120,6 @@ odoo.define('viin_web_studio.EditorAction', function(require) {
                 })
             });
         },
-        
         _loadStudioViewArch: function(model, viewType, viewId) {
             core.bus.trigger('clear_cache');
             var self = this;
@@ -134,8 +139,7 @@ odoo.define('viin_web_studio.EditorAction', function(require) {
             }).then(function(studio_view) {
                self.studio_view =  studio_view;
             });
-        }
-        
+        },
     });
     
     core.action_registry.add('studio_editor_action', StudioAction)
