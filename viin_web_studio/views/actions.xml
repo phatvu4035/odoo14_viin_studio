@@ -5,4 +5,8 @@
         <field name="name">Studio Editor Action</field>
         <field name="tag">studio_editor_action</field>
     </record>
+    <record id="studio_app_creator_action" model="ir.actions.client">
+        <field name="name">Studio App Creator</field>
+        <field name="tag">studio_app_creator_action</field>
+    </record>
 </odoo>

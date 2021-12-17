@@ -4,10 +4,10 @@ odoo.define('viin_web_studio.ViewEditorManager', function(require) {
     var AbstractEditorManager = require('viin_web_studio.AbstractEditorManager');
     var FormEditor = require('viin_web_studio.FormEditor');
     var viewRegistry = require('web.view_registry');
-    var helper = require('viin_web_studio.helper');
     var dom = require('web.dom');
     var EditorLeftSidebar = require('viin_web_studio.EditorLeftSidebar');
     var EditorRightSidebar = require('viin_web_studio.EditorRightSidebar');
+    var helper = require('viin_web_studio.helper');
 
     var editors = {
         'form': FormEditor
@@ -21,6 +21,7 @@ odoo.define('viin_web_studio.ViewEditorManager', function(require) {
         init: function(parent, params) {
             this.viewType = params.viewType;
             this.fieldViews = params.fieldViews;
+            this.fields = helper.cloneObj(this.fieldViews[this.viewType].fields, true)
             this.action = params.action;
             this.controllerState = params.controllerState;
             this.modelName = params.modelName
@@ -32,7 +33,6 @@ odoo.define('viin_web_studio.ViewEditorManager', function(require) {
          */
         start: function() {
             var self = this;
-            var defs = []
             // Create editor fragment
             var editorFragment = $('<div>', {
                     class: 'o_web_studio_editor_renderer',
@@ -44,6 +44,7 @@ odoo.define('viin_web_studio.ViewEditorManager', function(require) {
                     var defs = [];
                     var fragment = document.createDocumentFragment();
                     var prom = editor.appendTo(fragment);
+                    self.editor = editor;
                     defs.push(prom)
 
                     // Load left sidebar
@@ -67,11 +68,7 @@ odoo.define('viin_web_studio.ViewEditorManager', function(require) {
         */
         _instantiateEditor: function() {
             var View = viewRegistry.get(this.viewType);
-            var viewInfo = {
-                arch: this.fieldViews[this.viewType].arch,
-                fields: helper.cloneObj(this.fieldViews[this.viewType].fields, true),
-                viewFields: helper.cloneObj(this.fieldViews[this.viewType], true)
-            }
+            var fieldViews = this.fieldViews[this.viewType];
             var viewParams = {
                 action: this.action,
                 context: this.action.context,
@@ -81,8 +78,7 @@ odoo.define('viin_web_studio.ViewEditorManager', function(require) {
                 modelName: this.modelName,
                 mode: 'view',
             };
-
-            this.view = new View(viewInfo, viewParams);
+            this.view = new View(fieldViews, _.extend({}, viewParams));
             var editor = editors[this.viewType];
             var def = this.view.createStudioView(this, editor, {});
             return def;
@@ -92,8 +88,15 @@ odoo.define('viin_web_studio.ViewEditorManager', function(require) {
          */
         _instantiateEditorLeftSidebar: function () {
             var params = {
-                fields: []
+                fields: this.fields
             };
+            if(_.contains(['list', 'form', 'kanban'], this.viewType)) {
+                // This is variable for showing existing field section in sidebar
+                var fields_in_view = _.pick(this.fields, this.editor.state.getFieldNames());
+                var fields_not_in_view = _.omit(this.fields, this.editor.state.getFieldNames());
+                params.fields_in_view = fields_in_view;
+                params.fields_not_in_view = fields_not_in_view;
+            }
             var def = new EditorLeftSidebar(this, params);
             return def;
         },
@@ -102,12 +105,12 @@ odoo.define('viin_web_studio.ViewEditorManager', function(require) {
         *
         */
         _instantiateEditorRightSidebar: function () {
-            var params = {
-                fields: []
-            };
-            var def = new EditorRightSidebar(this, params);
+            var def = new EditorRightSidebar(this, {});
             return def;
-        }
+        },
+        _onFieldClicked: function (ev) {
+            debugger
+        },
     });
     
     

@@ -7,8 +7,8 @@
                 <script type="text/javascript" src="/viin_web_studio/static/src/js/menu.js" />
                 <script type="text/javascript" src="/viin_web_studio/static/src/js/chrome/web_client.js" />
                 <script type="text/javascript" src="/viin_web_studio/static/src/js/editor_action.js" />
+                <script type="text/javascript" src="/viin_web_studio/static/src/js/app_creator.js" />
                 <script type="text/javascript" src="/viin_web_studio/static/src/js/helper.js" />
-                
             </xpath>
         </template>
         
@@ -24,6 +24,7 @@
             <script type="text/javascript" src="/viin_web_studio/static/src/js/view_editor_manager.js" />
             <script type="text/javascript" src="/viin_web_studio/static/src/js/view_editor/form_editor.js" />
             <script type="text/javascript" src="/viin_web_studio/static/src/js/abstract_view.js" />
+            <link rel="stylesheet" type="text/scss" href="/viin_web_studio/static/src/scss/app_creator.scss"/>
             <link rel="stylesheet" type="text/scss" href="/viin_web_studio/static/src/scss/editor_action.scss"/>
             <link rel="stylesheet" type="text/scss" href="/viin_web_studio/static/src/scss/view_editor.scss"/>
         </template>

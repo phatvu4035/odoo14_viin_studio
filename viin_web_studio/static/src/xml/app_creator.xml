@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="viin_web_studio.AppCreator" owl="1">
+        <div class="o_web_studio_app_creator">
+            <h3>App Cretaor</h3>
+        </div>
+    </t>
+</templates>

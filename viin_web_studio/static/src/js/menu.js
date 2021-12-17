@@ -7,6 +7,9 @@ odoo.define('viin_web_studio.Menu', function (require) {
     const qweb = core.qweb
 
     Menu.include({
+        events: _.extend({}, Menu.prototype.events, {
+            'click .studio-create-app-btn': '_onCreateApp',
+        }),
         /**
          * @override
          */
@@ -20,6 +23,13 @@ odoo.define('viin_web_studio.Menu', function (require) {
         switchMode: function (e) {
             var $editorNavbar = $(qweb.render('viin_web_studio.EditorNavbar'));
             $editorNavbar.prependTo(this.$el);
+        },
+        /**
+         * Open pop up for App creator
+        * */
+        _onCreateApp: async function (e) {
+            e.preventDefault()
+            await this.do_action('studio_app_creator_action');
         }
     })
 });

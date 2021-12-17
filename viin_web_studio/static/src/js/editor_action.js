@@ -70,12 +70,13 @@ odoo.define('viin_web_studio.EditorAction', function(require) {
         */
         _setCurrentView: function(viewType) {
             var views = this.action._views || this.action.views;
+
             views = views.slice();
             var search_view_id = this.action.search_view_id && this.action.search_view_id[0];
             views.push([search_view_id || false, 'search']);
             this.views = views;
             var current_view = _.find(views, function(view) {
-                return view[1] = viewType
+                return view[1] === viewType
             });
             this.view = current_view || this.views[0];
             this.viewType = this.view[1];
@@ -90,7 +91,7 @@ odoo.define('viin_web_studio.EditorAction', function(require) {
             }
             
             return Promise.all(defs).then(function() {
-                var context = _.extend({}, helper.cloneObj(self.action.context, true), {lang: false});
+                var context = _.extend({}, self.action.context, {lang: false});
                 var loadView = self.loadViews(self.action.res_model, context, self.views, {load_filters: true});
                 return loadView.then(function(fieldViews) {
                     var params = {

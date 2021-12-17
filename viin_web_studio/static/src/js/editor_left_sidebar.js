@@ -1,4 +1,6 @@
 odoo.define('viin_web_studio.EditorLeftSidebar', function (require) {
+    "use strict";
+
     var Widget = require('web.Widget');
     var ViewComponent = require('viin_web_studio.view_components');
     var core = require('web.core');
@@ -9,6 +11,8 @@ odoo.define('viin_web_studio.EditorLeftSidebar', function (require) {
         template: 'viin_web_studio.EditorLeftSidebar',
         init: function (parent, params) {
             this.fields = params.fields;
+            this.fields_in_view = params.fields_in_view;
+            this.fields_not_in_view = params.fields_not_in_view;
             this._super.apply(this, arguments);
         },
 
@@ -17,16 +21,17 @@ odoo.define('viin_web_studio.EditorLeftSidebar', function (require) {
             return this._super.apply(this, arguments).then(function () {
                 // Append section to left sidebar
                 self._renderNewFieldSection();
+                self._renderExistingFieldSection();
             })
         },
 
         _renderNewFieldSection: function () {
             var newFieldSection = $('<div>', {
                 class: 'o_web_studio_new_fields'
-            })
+            });
             var sectionTitle = $('<h3>', {
                 html: _t('New Fields')
-            })
+            });
             var sidebarContent = this.$('.o_web_studio_left_sidebar_content');
             sidebarContent.append(sectionTitle);
             sidebarContent.append(newFieldSection);
@@ -38,6 +43,26 @@ odoo.define('viin_web_studio.EditorLeftSidebar', function (require) {
                 defs.push(prom);
             }
             return defs;
+        },
+
+        _renderExistingFieldSection: function () {
+            var existingFieldSection = $('<div>', {
+                class: 'o_web_studio_existing_fields'
+            });
+            var sectionTitle = $('<h3>', {
+                html: _t('Existing Field')
+            });
+            var sidebarContent = this.$('.o_web_studio_left_sidebar_content');
+            sidebarContent.append(sectionTitle);
+            sidebarContent.append(existingFieldSection);
+            var ExistingFieldComponent = ViewComponent.existing_field;
+            var defs = [];
+            for(let field in this.fields_not_in_view) {
+                var field_data = this.fields_not_in_view[field];
+                var field_elem = new ExistingFieldComponent(this, field_data.string, field, field_data.type, field_data.help || null);
+                let prom = field_elem.appendTo(existingFieldSection);
+                defs.push(prom);
+            }
         }
     });
     return EditorLeftSidebar;

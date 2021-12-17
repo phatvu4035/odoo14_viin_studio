@@ -6,4 +6,10 @@
             <div class="o_web_studio_component_description"><t t-esc="widget.technicalName"/></div>
         </div>
     </t>
+    <t t-name="ExistingFieldComponent">
+        <div class="o_web_studio_component" t-att-title="widget.fieldDescription">
+            <t t-esc="widget.fieldLabel"/>
+            <div class="o_web_studio_component_description"><t t-esc="widget.technicalName"/></div>
+        </div>
+    </t>
 </templates>

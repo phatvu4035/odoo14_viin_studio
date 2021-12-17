@@ -33,31 +33,31 @@
                     Menu
                 </a>
                 <div class="dropdown-menu" role="menu">
-                    <a role="menuitem" href="#" class="dropdown-item o_menu_entry_lvl_2" data-toggle="collapse studio-create-app-btn">
+                    <a role="menuitem" href="#" class="dropdown-item o_menu_entry_lvl_2 studio-create-app-btn" data-toggle="collapse">
                         <span>Create App</span>
                     </a>
-                    <a role="menuitem" href="#"  class="dropdown-item o_menu_entry_lvl_2" data-toggle="collapse studio-edit-menu-btn">
+                    <a role="menuitem" href="#"  class="dropdown-item o_menu_entry_lvl_2 studio-edit-menu-btn" data-toggle="collapse">
                         <span>Edit Menu</span>
                     </a>
-                    <a role="menuitem" href="#" class="dropdown-item o_menu_entry_lvl_2" data-toggle="collapse studio-edit-model-btn">
+                    <a role="menuitem" href="#" class="dropdown-item o_menu_entry_lvl_2 studio-edit-model-btn" data-toggle="collapse">
                         <span>Edit Model</span>
                     </a>
-                    <a role="menuitem" href="#" class="dropdown-item o_menu_entry_lvl_2" data-toggle="collapse studio-manage-report-btn">
+                    <a role="menuitem" href="#" class="dropdown-item o_menu_entry_lvl_2 studio-manage-report-btn" data-toggle="collapse">
                         <span>Manage Report</span>
                     </a>
-                    <a role="menuitem" href="#" class="dropdown-item o_menu_entry_lvl_2" data-toggle="collapse studio-manage-translation-btn">
+                    <a role="menuitem" href="#" class="dropdown-item o_menu_entry_lvl_2 studio-manage-translation-btn" data-toggle="collapse">
                         <span>Manage Translation</span>
                     </a>
-                    <a role="menuitem" href="#" class="dropdown-item o_menu_entry_lvl_2" data-toggle="collapse studio-manage-automation-btn">
+                    <a role="menuitem" href="#" class="dropdown-item o_menu_entry_lvl_2 studio-manage-automation-btn" data-toggle="collapse">
                         <span>Manage Automation</span>
                     </a>
-                    <a role="menuitem" href="#" class="dropdown-item o_menu_entry_lvl_2" data-toggle="collapse studio-manage-access-control-btn">
+                    <a role="menuitem" href="#" class="dropdown-item o_menu_entry_lvl_2 studio-manage-access-control-btn" data-toggle="collapse">
                         <span>Manage Access Control</span>
                     </a>
-                    <a role="menuitem" href="#" class="dropdown-item o_menu_entry_lvl_2" data-toggle="collapse studio-manage-filter-rule-btn">
+                    <a role="menuitem" href="#" class="dropdown-item o_menu_entry_lvl_2 studio-manage-filter-rule-btn" data-toggle="collapse">
                         <span>Manage Filter Rule</span>
                     </a>
-                    <a role="menuitem" href="#" class="dropdown-item o_menu_entry_lvl_2" data-toggle="collapse studio-customize-views-btn">
+                    <a role="menuitem" href="#" class="dropdown-item o_menu_entry_lvl_2 studio-customize-views-btn" data-toggle="collapse">
                         <span>Customize Views</span>
                     </a>
                     <a role="menuitem" href="#" class="dropdown-item o_menu_entry_lvl_2" data-toggle="collapse studio-import-btn">

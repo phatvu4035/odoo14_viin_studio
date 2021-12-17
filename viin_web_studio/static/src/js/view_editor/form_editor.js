@@ -29,7 +29,8 @@ odoo.define('viin_web_studio.FormEditor', function(require) {
          */
         _postProcessField: function(widget, node) {
             this._super.apply(this, arguments);
-            this._setVisited(widget.$el)
+            this._setVisited(widget.$el);
+            this._processField(node, widget.$el);
         },
 
         /**
@@ -45,6 +46,18 @@ odoo.define('viin_web_studio.FormEditor', function(require) {
 
         _handleDrop: function () {
             debugger
+        },
+
+        renderEmptyContentLine: function (node) {
+
+        },
+        _processField: function (node, $el) {
+            var self= this;
+            $el.click(function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                self.trigger_up('field_clicked', {node: node, $node:$el});
+            });
         }
     });
     return FormEditor
